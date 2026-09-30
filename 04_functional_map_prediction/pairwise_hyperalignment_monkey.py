@@ -53,7 +53,7 @@ if __name__ == "__main__":
             if sid == exclude_sid:
                 continue
             for align in ["procr", "ridge"]:
-                out_fn = f"{root}/transforms/monkey_{sid}_to_{exclude_sid}_{align}_with_mask_unweighted.npy"
+                out_fn = f"{root}/transforms/monkey_{exclude_sid}_to_{sid}_{align}_with_mask_unweighted.npy"
                 if os.path.exists(out_fn):
                     continue
                 jobs.append(delayed(nb.record(out_fn, hyperalign_to_subject))(data[exclude_sid], data[sid], "lr", radius, align))
